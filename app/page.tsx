@@ -57,7 +57,7 @@ export default function HomePage() {
               name="Sarah K."
               date="2 months ago"
               rating={5}
-              text={`"Stationery Hub has been our go-to supplier for years. Their products are top-notch, and their customer service is exceptional!"`}
+              text={`"SJ Pro Supplies has been our go-to supplier for years. Their products are top-notch, and their customer service is exceptional!"`}
               likes={5}
               comments={1}
             />

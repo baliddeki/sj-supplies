@@ -15,7 +15,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-amber-600 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-base tracking-tight">SJ</span>
               </div>
-              <span className="font-bold text-lg tracking-tight">SJ Supplies</span>
+              <span className="font-bold text-lg tracking-tight">SJ Pro Supplies</span>
             </div>
             <p className="text-[#60748a] text-sm leading-normal">
               Your trusted stationery partner in Uganda, providing quality supplies for schools, offices, and creatives.
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-[#f0f2f5] pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#60748a] text-sm">&copy; 2024 SJ Supplies. All rights reserved.</p>
+          <p className="text-[#60748a] text-sm">&copy; 2024 SJ Pro Supplies. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-[#60748a] hover:text-amber-600 text-sm">Privacy Policy</Link>
             <Link href="/terms" className="text-[#60748a] hover:text-amber-600 text-sm">Terms of Service</Link>

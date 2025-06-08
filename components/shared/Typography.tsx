@@ -13,5 +13,5 @@ export const CardTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Body = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <p className={`text-[#60748a] text-base font-normal ${className}`}>{children}</p>
+  <p className={`text-[#FFFFFF] text-base font-normal ${className}`}>{children}</p>
 );

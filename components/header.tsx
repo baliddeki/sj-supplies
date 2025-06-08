@@ -22,7 +22,7 @@ export function Header() {
               <span className="text-white font-bold text-base tracking-tight">SJ</span>
             </div>
             <span className="font-bold text-[#111418] text-lg tracking-tight leading-tight">
-              SJ Supplies
+              SJ Pro Supplies
             </span>
           </Link>
 
