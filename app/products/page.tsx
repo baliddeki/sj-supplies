@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeading, Body } from "@/components/shared/Typography";
+import { ProductCard } from "@/components/shared/ProductCard";
 import { Button } from "@/components/ui/button";
 
 const products = [
@@ -30,11 +29,8 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-white font-['Work_Sans','Noto_Sans',sans-serif] text-[#111418]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Title */}
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-4xl font-black text-[#111418] mb-2 tracking-tight">Products</h1>
-          <p className="text-[#60748a] text-sm md:text-base">Explore our wide range of stationery supplies</p>
-        </div>
+        <SectionHeading>Products</SectionHeading>
+        <Body className="mb-6">Explore our wide range of stationery supplies</Body>
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-1.5 mb-10 border-b border-[#f0f2f5]">
@@ -55,31 +51,21 @@ export default function ProductsPage() {
           ))}
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
-          {products.map((product, index) => (
-            <Link key={index} href={`/products/${product.name.toLowerCase()}`} className="group">
-              <Card className="bg-white border border-[#f0f2f5] rounded-xl hover:shadow-lg transition-shadow cursor-pointer flex flex-col p-0">
-                <div className="relative w-full aspect-square rounded-t-xl overflow-hidden min-h-[160px]">
-                  <Image
-                    src={product.img}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-200 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
-                  />
-                </div>
-                <CardContent className="p-3 flex-1 flex flex-col text-left">
-                  <h3 className="font-semibold text-[#111418] text-base mb-1">{product.name}</h3>
-                  <p className="text-xs md:text-sm text-[#60748a]">{product.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
+        {/* Products Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
+          {products.map((product) => (
+            <ProductCard
+              key={product.name}
+              img={product.img}
+              title={product.name}
+              description={product.description}
+              href={`/products/${product.name.toLowerCase()}`}
+            />
           ))}
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center gap-2 mt-10">
+        <div className="flex justify-center items-center gap-2 mt-12">
           <Button variant="ghost" size="sm" className="rounded-full text-[#60748a] hover:text-[#0c77f2]">
             {"<"}
           </Button>
