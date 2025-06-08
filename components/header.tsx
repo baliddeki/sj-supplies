@@ -10,60 +10,68 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header
+      className="bg-white border-b border-[#f0f2f5] sticky top-0 z-50 font-['Work_Sans','Noto_Sans',sans-serif]"
+      style={{ fontFamily: `"Work Sans", "Noto Sans", sans-serif` }}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-8 h-8 bg-amber-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SJ</span>
+              <span className="text-white font-bold text-base tracking-tight">SJ</span>
             </div>
-            <span className="font-bold text-gray-900 text-lg">SJ Supplies</span>
+            <span className="font-bold text-[#111418] text-lg tracking-tight leading-tight">
+              SJ Supplies
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-amber-600 font-medium">
+          <nav className="hidden md:flex items-center gap-7">
+            <Link href="/" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Home
             </Link>
-            <Link href="/products" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/products" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Products
             </Link>
-            <Link href="/school-supplies" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/school-supplies" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               School Supplies
             </Link>
-            <Link href="/office-essentials" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/office-essentials" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Office Essentials
             </Link>
-            <Link href="/custom-solutions" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/custom-solutions" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Custom Solutions
             </Link>
-            <Link href="/bulk-orders" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/bulk-orders" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Bulk Orders
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/about" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               About Us
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-amber-600 font-medium">
+            <Link href="/contact" className="text-[#111418] text-sm font-medium leading-normal hover:text-amber-600 transition-colors">
               Contact
             </Link>
           </nav>
 
           {/* Search and Cart */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input type="search" placeholder="Search" className="pl-10 w-64" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#60748a] w-4 h-4" />
+                <Input
+                  type="search"
+                  placeholder="Search"
+                  className="pl-10 w-48 rounded-lg bg-[#f0f2f5] border-none text-[#111418] text-sm font-normal focus:outline-none focus:ring-0 focus:border-none placeholder:text-[#60748a]"
+                />
               </div>
             </div>
             <Link href="/cart" className="relative">
-              <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-amber-600" />
-              <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <ShoppingCart className="w-6 h-6 text-[#111418] hover:text-amber-600 transition-colors" />
+              <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
                 3
               </span>
             </Link>
-
             {/* Mobile menu button */}
             <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -73,36 +81,40 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <div className="flex flex-col space-y-4">
-              <div className="sm:hidden">
+          <div className="md:hidden border-t border-[#f0f2f5] py-4">
+            <div className="flex flex-col gap-4">
+              <div className="sm:hidden mb-2">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input type="search" placeholder="Search" className="pl-10 w-full" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#60748a] w-4 h-4" />
+                  <Input
+                    type="search"
+                    placeholder="Search"
+                    className="pl-10 w-full rounded-lg bg-[#f0f2f5] border-none text-[#111418] text-sm font-normal focus:outline-none focus:ring-0 focus:border-none placeholder:text-[#60748a]"
+                  />
                 </div>
               </div>
-              <Link href="/" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Home
               </Link>
-              <Link href="/products" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/products" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Products
               </Link>
-              <Link href="/school-supplies" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/school-supplies" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 School Supplies
               </Link>
-              <Link href="/office-essentials" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/office-essentials" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Office Essentials
               </Link>
-              <Link href="/custom-solutions" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/custom-solutions" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Custom Solutions
               </Link>
-              <Link href="/bulk-orders" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/bulk-orders" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Bulk Orders
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/about" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 About Us
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-amber-600 font-medium">
+              <Link href="/contact" className="text-[#111418] text-base font-medium leading-normal hover:text-amber-600 transition-colors">
                 Contact
               </Link>
             </div>
