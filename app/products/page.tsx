@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const products = [
   { name: "Notebooks", description: "High-quality notebooks for your writing needs", img: "/images/products/notebooks.png" },
@@ -16,7 +16,7 @@ const products = [
   { name: "Highlighters", description: "Highlighters for marking important text", img: "/images/products/highlighters.png" },
   { name: "Scissors", description: "Scissors for cutting paper and other materials", img: "/images/products/scissor.png" },
   { name: "Tape", description: "Tape and strong adhesive tape", img: "/images/products/tape.png" },
-]
+];
 
 const categories = [
   { name: "School", active: true },
@@ -24,19 +24,16 @@ const categories = [
   { name: "Inks", active: false },
   // { name: "Art", active: false },
   { name: "Wallpapers", active: false },
-]
+];
 
 export default function ProductsPage() {
   return (
-    <div
-      className="min-h-screen bg-white font-['Work_Sans','Noto_Sans',sans-serif] text-[#111418]"
-      style={{ fontFamily: `"Work Sans", "Noto Sans", sans-serif` }}
-    >
+    <div className="min-h-screen bg-white font-['Work_Sans','Noto_Sans',sans-serif] text-[#111418]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Page Title */}
+        {/* Title */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#111418] mb-2 tracking-tight">Products</h1>
-          <p className="text-[#60748a] text-base">Explore our wide range of stationery supplies</p>
+          <h1 className="text-2xl md:text-4xl font-black text-[#111418] mb-2 tracking-tight">Products</h1>
+          <p className="text-[#60748a] text-sm md:text-base">Explore our wide range of stationery supplies</p>
         </div>
 
         {/* Category Tabs */}
@@ -58,12 +55,12 @@ export default function ProductsPage() {
           ))}
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
+        {/* Product Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
           {products.map((product, index) => (
             <Link key={index} href={`/products/${product.name.toLowerCase()}`} className="group">
               <Card className="bg-white border border-[#f0f2f5] rounded-xl hover:shadow-lg transition-shadow cursor-pointer flex flex-col p-0">
-                <div className="relative w-full aspect-square rounded-t-xl overflow-hidden">
+                <div className="relative w-full aspect-square rounded-t-xl overflow-hidden min-h-[160px]">
                   <Image
                     src={product.img}
                     alt={product.name}
@@ -72,9 +69,9 @@ export default function ProductsPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
                   />
                 </div>
-                <CardContent className="p-4 flex-1 flex flex-col text-left">
+                <CardContent className="p-3 flex-1 flex flex-col text-left">
                   <h3 className="font-semibold text-[#111418] text-base mb-1">{product.name}</h3>
-                  <p className="text-sm text-[#60748a]">{product.description}</p>
+                  <p className="text-xs md:text-sm text-[#60748a]">{product.description}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -82,7 +79,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center gap-2 mt-12">
+        <div className="flex justify-center items-center gap-2 mt-10">
           <Button variant="ghost" size="sm" className="rounded-full text-[#60748a] hover:text-[#0c77f2]">
             {"<"}
           </Button>
@@ -105,5 +102,5 @@ export default function ProductsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

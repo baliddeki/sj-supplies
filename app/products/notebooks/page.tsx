@@ -1,170 +1,136 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Star } from "lucide-react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export default function NotebookDetailPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-white font-['Work_Sans','Noto_Sans',sans-serif] text-[#111418]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-500 mb-8">Products {">"} Notebooks</nav>
+        <nav className="text-xs text-[#60748a] mb-8 flex items-center space-x-2">
+          <span>
+            <a href="/products" className="hover:underline">Products</a>
+          </span>
+          <span>{"/"}</span>
+          <span>Notebooks</span>
+        </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Images */}
-          <div className="space-y-4">
-            <div className="bg-gray-100 rounded-lg p-8 flex items-center justify-center min-h-[400px]">
+        {/* Product Title & Description */}
+        <div className="mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-[#111418] mb-1 tracking-tight">Premium Hardcover Notebook</h1>
+          <p className="text-[#60748a] text-xs md:text-base">Durable and stylish notebooks for all your writing needs.</p>
+        </div>
+
+        {/* Product Images */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-xl overflow-hidden mb-8 h-auto sm:h-[340px]">
+          {/* Main image */}
+          <div className="relative col-span-1 sm:col-span-2 h-[160px] sm:h-full rounded-xl overflow-hidden">
+            <Image
+              src="/images/product-details/book.png"
+              alt="Notebook cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 66vw"
+              priority
+            />
+          </div>
+          {/* Stacked right images */}
+          <div className="flex flex-col gap-3 h-[160px] sm:h-full">
+            <div className="relative flex-1 min-h-0 rounded-xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=300&width=200"
-                alt="Premium Hardcover Notebook"
-                width={200}
-                height={300}
-                className="object-contain"
+                src="/images/product-details/book-pencil.png"
+                alt="Notebook open inner pages"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-amber-100 rounded-lg p-4 flex items-center justify-center aspect-square">
-                  <Image
-                    src="/placeholder.svg?height=60&width=60"
-                    alt={`Product view ${i + 1}`}
-                    width={60}
-                    height={60}
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Product Details */}
-          <div className="space-y-6">
-            <h1 className="text-3xl font-bold text-gray-900">Premium Hardcover Notebook</h1>
-            <p className="text-gray-600">Superior paper quality for your writing needs</p>
-
-            {/* Product Specifications */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">Product Details</h3>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-500">Cover Material:</span>
-                  <span className="ml-2 text-gray-900">Hardcover</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Size:</span>
-                  <span className="ml-2 text-gray-900">A5</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Number of Pages:</span>
-                  <span className="ml-2 text-gray-900">200</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Ruling Style:</span>
-                  <span className="ml-2 text-gray-900">Lined</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Paper Weight:</span>
-                  <span className="ml-2 text-gray-900">80 GSM</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Binding:</span>
-                  <span className="ml-2 text-gray-900">Thread Bound</span>
-                </div>
-              </div>
-            </div>
-
-            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">ADD TO CART</Button>
-
-            {/* Customer Reviews */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">Customer Reviews</h3>
-              <div className="flex items-center space-x-4">
-                <div className="text-3xl font-bold">4.5</div>
-                <div>
-                  <div className="flex items-center mb-1">
-                    {[...Array(4)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                    <Star className="w-4 h-4 text-gray-300" />
-                  </div>
-                  <div className="text-sm text-gray-500">Based on 124 reviews</div>
-                </div>
-              </div>
-
-              {/* Individual Reviews */}
-              <div className="space-y-4">
-                <Card className="p-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-gray-300 rounded-full flex-shrink-0"></div>
-                    <div>
-                      <div className="flex items-center mb-1">
-                        <span className="font-medium text-gray-900">Sarah K.</span>
-                        <span className="text-sm text-gray-500 ml-2">2 months ago</span>
-                      </div>
-                      <div className="flex items-center mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        This notebook is fantastic! The paper is smooth and thick, perfect for fountain pens. The cover
-                        is durable. Very happy with this purchase!
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-gray-300 rounded-full flex-shrink-0"></div>
-                    <div>
-                      <div className="flex items-center mb-1">
-                        <span className="font-medium text-gray-900">David M.</span>
-                        <span className="text-sm text-gray-500 ml-2">1 month ago</span>
-                      </div>
-                      <div className="flex items-center mb-2">
-                        {[...Array(4)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                        ))}
-                        <Star className="w-3 h-3 text-gray-300" />
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        Great quality for the price. The paper quality is good and the cover is durable. Only downside
-                        is that it's a bit heavy to carry around.
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            </div>
-
-            {/* Related Products */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">Related Products</h3>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { name: "Colored Pen Set", image: "/placeholder.svg?height=80&width=80" },
-                  { name: "Adhesive Sticky Notes", image: "/placeholder.svg?height=80&width=80" },
-                  { name: "Compact Desk Organizer", image: "/placeholder.svg?height=80&width=80" },
-                ].map((product, index) => (
-                  <Card key={index} className="p-3">
-                    <div className="bg-gray-100 rounded p-2 mb-2 flex items-center justify-center aspect-square">
-                      <Image
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        width={60}
-                        height={60}
-                        className="object-contain"
-                      />
-                    </div>
-                    <h4 className="text-xs font-medium text-gray-900">{product.name}</h4>
-                  </Card>
-                ))}
-              </div>
+            <div className="relative flex-1 min-h-0 rounded-xl overflow-hidden">
+              <Image
+                src="/images/product-details/notepad-spiral.png"
+                alt="Spiral notebook and pen"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </div>
           </div>
         </div>
+
+        {/* Product Details Table */}
+        <section className="mb-8">
+          <h2 className="font-semibold text-[#111418] mb-2 text-base">Product Details</h2>
+          <p className="text-[#60748a] text-xs md:text-sm mb-3">
+            This premium hardcover notebook features a durable cover, high quality paper, and a lay-flat design for comfortable writing. Perfect for students, professionals, and anyone who values quality stationery.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs md:text-sm text-left text-[#111418] border-separate border-spacing-y-1">
+              <tbody>
+                <tr><td className="font-medium w-1/3 py-1 text-[#60748a]">Cover Material</td><td className="py-1">Hardcover</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Paper Weight</td><td className="py-1">100gsm</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Number of Pages</td><td className="py-1">200</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Ruling Type</td><td className="py-1">Lined / Plain</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Size</td><td className="py-1">A5 (14.8 × 21cm)</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">SKU</td><td className="py-1">NB-031</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Retail Price</td><td className="py-1">UGX 25,000</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Wholesale Price</td><td className="py-1">UGX 23,000 (min. 10)</td></tr>
+                <tr><td className="font-medium py-1 text-[#60748a]">Available Stock</td><td className="py-1">500+</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-2 mb-6">
+          <Button className="bg-[#0c77f2] hover:bg-blue-700 text-white px-6 py-2 font-semibold rounded-full shadow-none w-full sm:w-auto text-sm">
+            Add to Cart
+          </Button>
+          <Button
+            variant="outline"
+            className="border-[#0c77f2] text-[#0c77f2] hover:bg-[#0c77f2]/10 rounded-full w-full sm:w-auto text-sm"
+          >
+            Request Quote
+          </Button>
+        </div>
+
+        {/* Contact Us Buttons */}
+        <div className="flex gap-2 mb-8">
+          <Button variant="secondary" className="bg-white border border-[#f0f2f5] text-[#111418] shadow-none rounded-full text-sm">
+            WhatsApp
+          </Button>
+          <Button variant="secondary" className="bg-white border border-[#f0f2f5] text-[#111418] shadow-none rounded-full text-sm">
+            Call
+          </Button>
+        </div>
+
+        {/* Related Products */}
+        <section>
+          <h3 className="font-semibold text-[#111418] mb-3 text-base">Related Products</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {[
+              { name: "Colorful Pen Set", image: "/images/school-supplies/colored-pencils.png", description: "Set of 10 vibrant pens" },
+              { name: "Assorted Sticky Notes", image: "/images/school-supplies/math-sets.png", description: "Pack of 6 assorted sticky notes" },
+              { name: "Compact Desk Organizer", image: "/images/school-supplies/compact-desk-organizer.png", description: "Keep your workspace tidy" },
+            ].map((prod, idx) => (
+              <Card key={idx} className="overflow-hidden flex flex-col group p-0">
+                <div className="relative aspect-square min-h-[120px] rounded-t-lg overflow-hidden">
+                  <Image
+                    src={prod.image}
+                    alt={prod.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-3 flex-1 flex flex-col">
+                  <div className="font-medium text-xs md:text-sm text-[#111418] mb-1">{prod.name}</div>
+                  <div className="text-xs text-[#60748a]">{prod.description}</div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
-  )
+  );
 }
